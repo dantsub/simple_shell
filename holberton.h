@@ -10,10 +10,12 @@
 #include <signal.h>
 #include <sys/stat.h>
 
-void child_process(char *str, char **args, char **env);
-int lenMalloc(char *pointer);
-char *_getenv(char *nameVar, char **env);
-char *check_paths(char **args, char **env);
+char **prompt(void);
+char **get_args(char *str);
+void child(char **av, char **env);
+void control(int signal);
+char *_getenv(char *name, char **env);
+char *check_paths(char **av, char **env);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
