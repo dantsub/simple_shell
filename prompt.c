@@ -15,11 +15,13 @@ char **prompt(void)
 		write(STDOUT_FILENO, "$ ", 2);
 		get = getline(&str, &size, stdin);
 
-		if (get == EOF || !(_strcmp(str, "exit")))
+		if (get == EOF)
 		{
 			write(STDOUT_FILENO, "\n", 1);
 			exit(1);
 		}
+		if (!(_strcmp(str, "exit\n")))
+			exit(1);
 	} while (get == 1);
 	av = get_args(str);
 	if (!av)
