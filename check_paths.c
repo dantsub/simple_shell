@@ -26,7 +26,6 @@ char *check_paths(char **av, char **env)
 		_strcpy(path, tok);
 		_strcat(path, "/");
 		_strcat(path, av[0]);
-		/* printf("%s\n", path); */
 		if (!(stat(path, &check)))
 			return (path);
 

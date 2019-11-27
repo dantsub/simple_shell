@@ -24,13 +24,16 @@ void child(char **av, char **env)
 		if (execve(str, av, env) == -1)
 		{
 			write(STDOUT_FILENO, "hsh: No such file or directory\n", 31);
-			exit(1);
+			free(str);
+			free(av);
+			exit(127);
 		}
 	}
 	if (child > 0)
 	{
 		wait(status);
+		free(av);
 		if (!(isatty(STDIN_FILENO)))
-			_exit(1);
+			_exit(0);
 	}
 }

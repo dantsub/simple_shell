@@ -1,25 +1,35 @@
 #include "holberton.h"
 /**
- * main - main function.
- * @ac: count args.
- * @av: value args.
- * @env: enviroment.
- * Return: 0.
- */
+  * main - main.
+  * @ac: arg count.
+  * @av: arg value.
+  * @env: environment.
+  * Return: 0 is success.
+  */
 int main(int ac, char **av, char **env)
 {
+	int flag = 1;
+	char **args, *str;
 	(void)ac;
 	(void)av;
 
 	signal(SIGINT, control);
-	prompt(env);
+
+	while (flag)
+	{
+		str = prompt();
+		args = get_args(str);
+		child(args, env);
+	}
+	free(str);
+	free(args);
 	return (0);
 }
 /**
- * control - function for Ctrl + C
- * @signal: int.
- * Return: nothing.
- */
+  * control - function for Ctrl + C
+  * @signal: int.
+  * Return: nothing.
+  */
 void control(int signal)
 {
 	(void)signal;
