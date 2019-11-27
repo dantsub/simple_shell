@@ -20,14 +20,11 @@ void child(char **av, char **env)
 		if (stat(av[0], &check))
 			str = check_paths(av, env);
 		else
-			str = *av;
-		if (!stat(str, &check))
+			str = av[0];
+		if (execve(str, av, env) == -1)
 		{
-			if (execve(str, av, env) == -1)
-			{
-				perror("hsh");
-				exit(1);
-			}
+			dprintf(1, "hsh: No such file or directory\n");
+			exit(1);
 		}
 	}
 	if (child > 0)
