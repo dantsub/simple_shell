@@ -1,32 +1,10 @@
 #include "holberton.h"
 /**
-  * _getenv - find the name in the environment.
-  * @name: name to find.
-  * @env: environment.
-  * Return: name or NULL.
-  */
-char *_getenv(char *name, char **env)
-{
-	int index = 0;
-	char *valEnv = env[index], *nameEnv = strtok(valEnv, "=");
-
-	while (_strcmp(name, nameEnv) && nameEnv && env[index])
-	{
-		valEnv = env[index++];
-		nameEnv = strtok(valEnv, "=");
-	}
-	nameEnv = strtok(NULL, "\n");
-
-	if (env[index] == 0)
-		return (NULL);
-	return (nameEnv);
-}
-/**
-  * get_args - find the name in the environment.
-  * @str: string.
-  *
-  * Return: array of pointer or NULL.
-  */
+ * get_args - find the name in the environment.
+ * @str: string.
+ *
+ * Return: array of pointer or NULL.
+ */
 char **get_args(char *str)
 {
 	int len = 0, index = 0;

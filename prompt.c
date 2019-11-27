@@ -1,25 +1,24 @@
 #include "holberton.h"
 /**
-  * prompt - The prompt.
-  *
-  *
-  * Return: The arguments or NULL.
+  * prompt - interpreter.
+  * @env: environment.
   */
-char *prompt(void)
+void prompt(char **env)
 {
-	char *str;
-	size_t size;
-	int get;
+	char *str, **av;
+	size_t len;
+	int flag = 1, get = 0;
 
-	write(STDOUT_FILENO, "$ ", 2);
-	get = getline(&str, &size, stdin);
+	do {
+		write(STDOUT_FILENO, "$ ", 2);
+		get = getline(&str, &len, stdin);
+		check_getline(get);
+		check_exit(str);
+		if (_strcmp(str, "\n"))
+		{
+			av = get_args(str);
+			child(av, env);
+		}
 
-	if (get == EOF)
-	{
-		write(STDOUT_FILENO, "\n", 1);
-		exit(1);
-	}
-	if (!(_strcmp(str, "exit\n")))
-		exit(1);
-	return (str);
+	} while (flag);
 }
