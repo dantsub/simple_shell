@@ -17,12 +17,17 @@ void child(char **av, char **env)
 	{
 		str = av[0];
 
-		if (!(stat(av[0], &check)))
+		if (stat(av[0], &check))
 			str = check_paths(av, env);
-		if (execve(str, av, env) == -1)
+		else
+			str = *av;
+		if (!stat(str, &check))
 		{
-			perror("hsh");
-			exit(1);
+			if (execve(str, av, env) == -1)
+			{
+				perror("hsh");
+				exit(1);
+			}
 		}
 	}
 	if (child > 0)

@@ -20,13 +20,13 @@ char *check_paths(char **av, char **env)
 	{
 		size = (_strlen(tok) + _strlen(av[0]) + 1);
 		path = malloc(sizeof(char *) * size);
-		
+
 		if (!path)
 			return (NULL);
 		_strcpy(path, tok);
 		_strcat(path, "/");
 		_strcat(path, av[0]);
-			
+		/* printf("%s\n", path); */
 		if (!(stat(path, &check)))
 			return (path);
 
