@@ -2,7 +2,7 @@
 
 
 
-### Pre-requisitos 
+### Pre-requires 
 
 - OS Ubuntu 14.04 LTS
 - gcc version 4.8.4
@@ -15,7 +15,6 @@ It should be compiled as follows for better operation.
 
 ```
 gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
-
 ```
 
 ## Test cases. 
