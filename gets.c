@@ -30,7 +30,7 @@ char *_getenv(char *name, char **env)
 char **get_args(char *str)
 {
 	int len = 0, index = 0;
-	char **av, *tok;
+	char **av = NULL, *tok = NULL;
 
 	while (str[index])
 	{

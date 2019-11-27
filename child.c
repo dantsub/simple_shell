@@ -20,7 +20,7 @@ void child(char **av, char **env)
 		if (stat(av[0], &check))
 			str = check_paths(av, env);
 		else
-			str = av[0];
+			str = *av;
 		if (execve(str, av, env) == -1)
 		{
 			write(STDOUT_FILENO, "hsh: No such file or directory\n", 31);
@@ -32,7 +32,6 @@ void child(char **av, char **env)
 	if (child > 0)
 	{
 		wait(status);
-		free(av);
 		if (!(isatty(STDIN_FILENO)))
 			_exit(0);
 	}

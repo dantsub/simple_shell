@@ -26,10 +26,9 @@ char *check_paths(char **av, char **env)
 		_strcpy(path, tok);
 		_strcat(path, "/");
 		_strcat(path, av[0]);
+		tok = strtok(NULL, ":");
 		if (!(stat(path, &check)))
 			return (path);
-
-		tok = strtok(NULL, ":");
 		free(path);
 
 	}

@@ -7,9 +7,9 @@
   */
 char *prompt(void)
 {
-	char *str;
-	size_t size;
-	int get;
+	char *str = NULL;
+	size_t size = 0;
+	int get = 0;
 
 	write(STDOUT_FILENO, "$ ", 2);
 	get = getline(&str, &size, stdin);
