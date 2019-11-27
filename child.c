@@ -20,12 +20,12 @@ void child(char **av, char **env)
 		if (stat(av[0], &check))
 			str = check_paths(av, env);
 		if (execve(str, av, env) == -1)
-			perror("Error");
+			perror("hsh");
 	}
 	if (child > 0)
 	{
 		wait(status);
 		if (!(isatty(STDIN_FILENO)))
-			exit(1);
+			_exit(1);
 	}
 }

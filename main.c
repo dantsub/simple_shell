@@ -9,7 +9,7 @@
 int main(int ac, char **av, char **env)
 {
 	int flag = 1;
-	char **args;
+	char **args, *str;
 	(void)ac;
 	(void)av;
 
@@ -17,7 +17,8 @@ int main(int ac, char **av, char **env)
 
 	while (flag)
 	{
-		args = prompt();
+		str = prompt();
+		args = get_args(str);
 		child(args, env);
 	}
 	free(args);

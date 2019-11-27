@@ -10,7 +10,7 @@
 #include <signal.h>
 #include <sys/stat.h>
 
-char **prompt(void);
+char *prompt(void);
 char **get_args(char *str);
 void child(char **av, char **env);
 void control(int signal);

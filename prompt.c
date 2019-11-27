@@ -5,9 +5,9 @@
   *
   * Return: The arguments or NULL.
   */
-char **prompt(void)
+char *prompt(void)
 {
-	char **av, *str;
+	char *str;
 	size_t size;
 	int get;
 
@@ -23,8 +23,5 @@ char **prompt(void)
 		if (!(_strcmp(str, "exit\n")))
 			exit(1);
 	} while (get == 1);
-	av = get_args(str);
-	if (!av)
-		return (NULL);
-	return (av);
+	return (str);
 }
