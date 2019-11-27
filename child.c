@@ -23,7 +23,7 @@ void child(char **av, char **env)
 			str = av[0];
 		if (execve(str, av, env) == -1)
 		{
-			dprintf(1, "hsh: No such file or directory\n");
+			write(STDOUT_FILENO, "hsh: No such file or directory\n", 31);
 			exit(1);
 		}
 	}
