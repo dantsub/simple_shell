@@ -1,16 +1,31 @@
-NAME
-	The name of the command or function, followed by a one-line description of what it does.
-SYNOPSIS
-	In the case of a command, you get a formal description of how to run it and what command line options it takes.
-DESCRIPTION
-	A textual description of the functioning of the command or function.
-EXAMPLES
-	Some examples of common usage.
-SEE ALSO
-	A list of related commands or functions.
-BUGS
-	List known bugs.
-AUTHOR
-	Specify your contact information.
-COPYRIGHT
-	Specify your copyright information.
+.TH Simple_shell 27 Nov. 2019 Version 0.1 
+.SH NAME
+.IP Simple-shell
+.B- Command interpreter
+.SH SYNOPSIS
+.B hsh
+.SH DESCRIPTION
+.PP
+.B Simple_shell is a program developed for an exercise of Holberton School that simulate some functions of the Unix Shell. The simple_shell takes commands from the keyboard and gives them to the operating system to perform.
+.IP Overview.
+.PP 
+.B The shell is a command that reads lines from either a file or the terminal, interprets them, and generally executes other commands.
+.SH FILES
+.PP
+check_paths.c [function to verify if the command that receives the output is valid and calls a process to execute the command]
+child.c [create a child process and execute that process]
+gets.c [has two functions, the first is to catch the ROUTE and the second is to obtain the arguments of the request function]
+main.c [the program]
+prompt.c [contains the prompt and sends the arguments of the output to the input]
+str_functions.c [contains functions to manipulate strems]
+.SH EXAMPLES
+.IP ls
+.B list directory contents.
+.IP echo
+.B display a line of text.
+.IP pwd
+.B print name of current/working directory.
+.SH BUGS
+.B Don't exit if a command dosen't exist.
+.SH AUTHOR
+.B Paula Sotelo, Joshua Daniel Martinez.
