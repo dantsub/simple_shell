@@ -1,10 +1,36 @@
+#include "holberton.h"
+/**
+  * _getenv - find the name in the environment.
+  * @name: name to find.
+  * @env: environment.
+  * Return: name or NULL.
+  */
+char *_getenv(char *name, char **env)
+{
+	int index = 0;
+	char *valEnv = env[index], *nameEnv = strtok(valEnv, "=");
+
+	while (_strcmp(name, nameEnv) && nameEnv && env[index])
+	{
+		valEnv = env[index++];
+		nameEnv = strtok(valEnv, "=");
+	}
+	nameEnv = strtok(NULL, "\n");
+
+	if (env[index] == 0)
+		return (NULL);
+	return (nameEnv);
+}
+/**
+  * get_args - get the arguments.
+  * @str: string from getline.
+  *
+  * Return: array of pointer or NULL.
+  */
 char **get_args(char *str)
 {
-	int len, index;
-	char **av, *tok
-
-	len = index = 0;
-	av = tok = NULL;
+	int len = 0, index = 0;
+	char **av = NULL, *tok = NULL;
 
 	while (str[index])
 	{
@@ -24,20 +50,4 @@ char **get_args(char *str)
 	}
 	av[index] = NULL;
 	return (av);
-}
-char *_getenv(char *name, char **env)
-{
-	int index = 0;
-	char *valEnv = env[index], *nameEnv = strtok(valEnv, "=");
-
-	while (_strcmp(name, nameEnv) && nameEnv && env[index])
-	{
-		valEnv = env[index++];
-		nameEnv = strtok(valEnv, "=");
-	}
-	nameEnv = strtok(NULL, "\n");
-
-	if (env[index] == 0)
-		return (NULL);
-	return (nameEnv);
 }

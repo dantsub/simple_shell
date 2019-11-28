@@ -1,6 +1,7 @@
-char **path(char **path, char **env)
+#include "holberton.h"
+char *path(char **path, char **env)
 {
-	char **paths, *en = _getenv("PATH", env);
+	char *paths, *tok, *en = _getenv("PATH", env);
 	int size = 0;
 	struct stat check;
 
@@ -10,7 +11,7 @@ char **path(char **path, char **env)
 	tok = strtok(en, ":");
 	while (tok)
 	{
-		size(_strlen(tok) + _strlen(path[0]) + 1);
+		size = (_strlen(tok) + _strlen(path[0]) + 1);
 		paths = malloc(sizeof(char*) * size);
 		if (!paths)
 			return (NULL);
