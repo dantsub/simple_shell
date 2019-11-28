@@ -12,6 +12,7 @@
 
 char *prompt(void);
 char **get_args(char *str);
+char **verify_command(char **av);
 void child(char **av, char **env);
 void control(int signal);
 char *_getenv(char *name, char **env);

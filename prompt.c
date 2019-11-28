@@ -17,13 +17,9 @@ char *prompt(void)
 	if (get == EOF)
 	{
 		write(STDOUT_FILENO, "\n", 1);
-		free(str);
-		exit(1);
+		return (NULL);
 	}
 	if (!(_strcmp(str, "exit\n")))
-	{
-		free(str);
-		exit(1);
-	}
+		return (NULL);
 	return (str);
 }

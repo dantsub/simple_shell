@@ -7,29 +7,25 @@
   */
 void child(char **av, char **env)
 {
-	char *str;
+	char *str = NULL;
 	int *status = NULL;
-	struct stat check;
 	pid_t child;
 
+	if (!verify_command(av))
+		str = check_paths(av, env);
 	child = fork();
 	if (!child)
 	{
-		str = av[0];
-
-		if (stat(av[0], &check))
-			str = check_paths(av, env);
+		if (str)
+			execve(str, av, env);
 		else
-			str = *av;
-		if (execve(str, av, env) == -1)
 		{
-			write(STDOUT_FILENO, "hsh: No such file or directory\n", 31);
 			free(str);
-			free(av);
-			exit(127);
+			execve(av[0], av, env);
 		}
+
 	}
-	if (child > 0)
+	else
 	{
 		wait(status);
 		if (!(isatty(STDIN_FILENO)))

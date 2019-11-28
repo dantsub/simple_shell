@@ -13,9 +13,7 @@ char *check_paths(char **av, char **env)
 
 	if (!valEnv)
 		return (NULL);
-
 	tok = strtok(valEnv, ":");
-
 	while (tok)
 	{
 		size = (_strlen(tok) + _strlen(av[0]) + 1);
@@ -23,12 +21,13 @@ char *check_paths(char **av, char **env)
 
 		if (!path)
 			return (NULL);
+
 		_strcpy(path, tok);
 		_strcat(path, "/");
 		_strcat(path, av[0]);
-		tok = strtok(NULL, ":");
 		if (!(stat(path, &check)))
 			return (path);
+		tok = strtok(NULL, ":");
 		free(path);
 
 	}

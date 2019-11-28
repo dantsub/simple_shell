@@ -18,11 +18,14 @@ int main(int ac, char **av, char **env)
 	while (flag)
 	{
 		str = prompt();
-		args = get_args(str);
-		child(args, env);
+		if (!str)
+			return (-1);
+		if (_strcmp(str, "\n"))
+		{
+			args = get_args(str);
+			child(args, env);
+		}
 	}
-	free(str);
-	free(args);
 	return (0);
 }
 /**
