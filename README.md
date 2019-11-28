@@ -4,7 +4,7 @@ This project is a basic Shell prototype with an academic purpose for Holberton S
 
 ### Requirements
 
-#General
+# General
 
 - Allowed editors: vi, vim, emacs
 - All your files will be compiled on Ubuntu 14.04 LTS
@@ -16,7 +16,7 @@ This project is a basic Shell prototype with an academic purpose for Holberton S
 - All your header files should be include guarded
 - Use system calls only when you need to (why?)
 
-##List of allowed functions and system calls
+## List of allowed functions and system calls
 
 access (man 2 access)
 chdir (man 2 chdir)
