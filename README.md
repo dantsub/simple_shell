@@ -1,15 +1,20 @@
 # Simple shell
+
+This project is a basic Shell prototype with an academic purpose for Holberton School.
+
 ### Requirements
+
 #General
-Allowed editors: vi, vim, emacs
-All your files will be compiled on Ubuntu 14.04 LTS
-Your C programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
-All your files should end with a new line
-A README.md file, at the root of the folder of the project is mandatory
-Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-No more than 5 functions per file
-All your header files should be include guarded
-Use system calls only when you need to (why?)
+
+- Allowed editors: vi, vim, emacs
+- All your files will be compiled on Ubuntu 14.04 LTS
+- Your C programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
+- All your files should end with a new line
+- A README.md file, at the root of the folder of the project is mandatory
+- Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
+- No more than 5 functions per file
+- All your header files should be include guarded
+- Use system calls only when you need to (why?)
 
 ##List of allowed functions and system calls
 
@@ -59,23 +64,16 @@ It should be compiled as follows for better operation.
 gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ```
 
-## Test cases. 
-
-~~~
-~~~
-
 ## Built with 
 
 Text Editor Vi.
 This program is written with the programming language c.
 
 ## Versioning
-res
-Seimple shell 0.1
+
+Simple shell 0.1
 
 ## Authors
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
 * **Paula Sotelo** - [omeinsotelo](https://github.com/omeinsotelo)
 * **Joshua Daniel Martinez** - [dantsub](https://github.com/dantsub)
