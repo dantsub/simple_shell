@@ -3,27 +3,20 @@
   * prompt - The prompt.
   *
   *
-  * Return: The arguments or NULL.
+  * Return: None
   */
-char *prompt(void)
+void *prompt(char **env)
 {
-	char *str = NULL;
-	size_t size = 0;
-	int get = 0;
+	char *str, **args;
+	size_t len;
+	int get, status;
 
-	write(STDOUT_FILENO, "$ ", 2);
-	get = getline(&str, &size, stdin);
-
-	if (get == EOF)
+	while (1)
 	{
-		write(STDOUT_FILENO, "\n", 1);
-		free(str);
-		exit(1);
+		write(STDOUT_FILENO, "$ ", 2);
+		get = getline(&str, &len, stdin);
+		args = get_args(str);
+		status = process(args, env);
+		verify_getline(str, get, status);
 	}
-	if (!(_strcmp(str, "exit\n")))
-	{
-		free(str);
-		exit(1);
-	}
-	return (str);
 }
