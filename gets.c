@@ -1,10 +1,10 @@
 #include "holberton.h"
 /**
-  * _getenv - find the name in the environment.
-  * @name: name to find.
-  * @env: environment.
-  * Return: name or NULL.
-  */
+ * _getenv - find the name in the environment.
+ * @name: name to find.
+ * @env: environment.
+ * Return: name or NULL.
+ */
 char *_getenv(char *name, char **env)
 {
 	int index = 0;
@@ -22,11 +22,11 @@ char *_getenv(char *name, char **env)
 	return (nameEnv);
 }
 /**
-  * get_args - get the arguments.
-  * @str: string from getline.
-  *
-  * Return: array of pointer or NULL.
-  */
+ * get_args - get the arguments.
+ * @str: string from getline.
+ *
+ * Return: array of pointer or NULL.
+ */
 char **get_args(char *str)
 {
 	int len = 0, index = 0;
@@ -34,7 +34,8 @@ char **get_args(char *str)
 
 	while (str[index])
 	{
-		if (str[index] == 32 || str[index] == 9 || str[index] == 10)
+		if (str[index] == 32 || str[index] == 9 ||
+				str[index] == 10 || str[index] == 13)
 			len++;
 		index++;
 	}

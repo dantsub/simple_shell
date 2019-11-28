@@ -15,9 +15,32 @@
 check_paths.c [function to verify if the command that receives the output is valid and calls a process to execute the command]
 child.c [create a child process and execute that process]
 gets.c [has two functions, the first is to catch the ROUTE and the second is to obtain the arguments of the request function]
+verify.c [Function that verify if the str from the output is a path or a executable]
 main.c [the program]
 prompt.c [contains the prompt and sends the arguments of the output to the input]
 str_functions.c [contains functions to manipulate strems]
+.B holberton.h
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <signal.h>
+#include <sys/stat.h>
+
+char *prompt(void);
+char **get_args(char *str);
+char **verify_command(char **av);
+void child(char **av, char **env);
+void control(int signal);
+char *_getenv(char *name, char **env);
+char *check_paths(char **av, char **env);
+char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
+int _strcmp(char *s1, char *s2);
+int _strlen(char *s);
+
 .SH EXAMPLES
 .IP ls
 .B list directory contents.

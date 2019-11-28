@@ -9,7 +9,7 @@
 int main(int ac, char **av, char **env)
 {
 	int flag = 1;
-	char **args, *str;
+	char **args = NULL, *str = NULL;
 	(void)ac;
 	(void)av;
 
@@ -19,7 +19,7 @@ int main(int ac, char **av, char **env)
 	{
 		str = prompt();
 		if (!str)
-			return (-1);
+			break;
 		if (_strcmp(str, "\n"))
 		{
 			args = get_args(str);

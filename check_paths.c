@@ -27,8 +27,8 @@ char *check_paths(char **av, char **env)
 		_strcat(path, av[0]);
 		if (!(stat(path, &check)))
 			return (path);
-		tok = strtok(NULL, ":");
 		free(path);
+		tok = strtok(NULL, ":");
 
 	}
 	return (NULL);
